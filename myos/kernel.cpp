@@ -6,10 +6,6 @@ void printf(char* str){
 
 }
 
-typedef void(*constructor)();
-extern "C" constructor* start_ctors;
-extern "C" constructor* end_ctors;
-
 extern "C" void kernelMain(void* multiboot_structure, unsigned int magicnumber){
 	printf("Hello World");
 
