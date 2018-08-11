@@ -2,14 +2,15 @@
 .set FLAGS, (1<<0 | 1<<1)
 .set CHECKSUM, -(MAGIC + FLAGS)
 
+.global loader
+.extern kernelMain
+
 .section .multiboot
 	.long MAGIC
 	.long FLAGS
 	.long CHECKSUM
 
 .section .text
-.extern kernelMain
-.global loader
 
 loader:
 	mov $kernel_stack, %esp
